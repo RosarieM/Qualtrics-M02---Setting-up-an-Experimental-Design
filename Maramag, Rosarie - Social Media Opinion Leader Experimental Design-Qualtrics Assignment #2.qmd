@@ -1,0 +1,150 @@
+---
+title: "Social Media Opinion Leader Experimental Design"
+subtitle: "Qualtrics Assignment #2 Report"
+author: "Rosarie Maramag"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+## Overview
+
+This report documents the work I completed in Qualtrics for Assignment #2. I imported the Social Media Opinion Leader survey (.qsf file) and completed three tasks:
+
+1.  Randomly assigned participants to one of two ad conditions (a between-subjects experimental design).
+2.  Redesigned the social media usage questions so time spent is captured for each platform, using a multiple answer question and Carry Forward.
+3.  Reviewed the whole questionnaire and made three improvements.
+
+## Task 1: Renamed the Project
+
+I renamed the project to **Social Media Opinion Leader-Experimental Design** by clicking the project title at the top of the editor.
+
+![](images/clipboard-2267128130.png)
+
+## Task 2: Structure of the Questionnaire
+
+I reviewed all of the blocks and the questions in each. The survey flow contains these blocks, in order:
+
+| Order | Block | Purpose |
+|----------------------|----------------------|----------------------------|
+| 1 | Cover Page | Consent and introduction |
+| 2 | Overall Social Media Experience | General social media use |
+| 3 | External Information Source | Where participants get information |
+| 4 | Opinion Leaders | Attitudes toward opinion leaders |
+| 5 | social_media_review | Experimental condition A (a product review about Nike shoes) |
+| 6 | ads | Experimental condition B (an ad) |
+| 7 | DV | Dependent variables, asked of all participants |
+| 8 | Purchasing Behavior | Purchase behavior questions |
+| 9 | Demographics | Background questions |
+
+Blocks 5 and 6 are the two treatments being compared. Block 7 (DV) is the set of outcome questions that every participant answers regardless of which treatment they saw, so the two groups can be compared on the same measures.
+
+## ![](images/clipboard-1090718024.png)Task 3: Random Assignment to Ad Type
+
+### Goal
+
+To compare the effectiveness of the two ad types fairly, the two participant groups must be equivalent on everything except the ad they see (for example age, gender, awareness of Nike, and attitude toward Nike). Random assignment makes the groups comparable on average. I used a **between subjects design**, so each participant sees only one of the two ads and then answers the same DV questions.
+
+### What I did
+
+1.  Opened **Survey Flow**.
+2.  Added a **Randomizer** element immediately after the Opinion Leaders block, in the place where the two ad blocks used to sit. This keeps the original order of the survey, so participants see the earlier questions first and the ad stimulus only at the experimental point.
+3.  Moved both **social_media_review** and **ads** under the Randomizer.
+4.  Set the Randomizer to **Randomly present 1** of the following elements, with **Evenly Present Elements** checked, so about half of participants see each ad.
+5.  Left **DV**, **Purchasing Behavior**, and **Demographics** outside the Randomizer, so every participant answers them.
+
+### Final Survey Flow
+
+### ![](images/clipboard-717070940.png)Testing the randomization
+
+I previewed the survey five times to confirm the assignment works. The condition I received in each test was:
+
+| Test | Condition shown     |
+|------|---------------------|
+| 1    | Ad                  |
+| 2    | Social media review |
+| 3    | Ad                  |
+| 4    | Social media review |
+| 5    | Ad                  |
+
+Both conditions appeared, and in no test did I see both. Evenly Present Elements keeps the counts balanced across participants, which is why the pattern alternates closely.
+
+## Task 4: Capturing Time Spent on Each Social Media Platform
+
+### The problem
+
+The original question Q2.2 asked, "How often do you use social media platforms (e.g. Facebook, Instagram, Twitter, Snapchat)?" with a single answer for all platforms combined. We cannot tell how much time a participant spends on any one platform. Splitting it into a few separate questions would not work either, because people use many platforms and we would not know which ones each person uses.
+
+![](images/clipboard-3588166578.png)
+
+### The solution
+
+**Step 1: A "select all that apply" question (Q58).** I could not find an existing Q58 question in the imported survey, so I created a new multiple-choice question that asks, "Which of the following social media platforms do you use? Select all that apply." It lists nine choices (Facebook, Instagram, Twitter/X, Snapchat, TikTok, YouTube, LinkedIn, Pinterest, and Other). I changed the answer type to **Allow multiple answers** so that participants can check every platform they use, not just the one they use most.
+
+![](images/clipboard-2182024296.png)
+
+**Step 2: A follow-up matrix using Carry Forward (Q59).** I added a matrix table question, "On a typical day, about how much time do you spend on each of the following platforms?" Using **Carry forward statements**, I set the rows to come from the **Selected Choices** of Q58. Each participant therefore sees only the platforms they said they use. I set the columns to time ranges instead of the default "None at all / A little / A lot" labels, because the question is about time.
+
+![](images/clipboard-4253038205.png)
+
+![](images/clipboard-934816632.png)I chose Carry Forward over a combination of piped text and display logic because it needs only one follow up question, no matter how many platforms there are, and it is easier to maintain.
+
+### Testing
+
+In Preview, I selected Instagram, Snapchat, and TikTok on Q58. The next page showed only those three platforms as rows in Q59, which confirms that Carry Forward works.
+
+![](images/clipboard-2751511482.png)
+
+![](images/clipboard-3889876394.png)
+
+## Task 5: Three Improvements to the Questionnaire
+
+> **Note to self before rendering:** Confirm that each change below is actually made in your Qualtrics survey, and edit the wording here to match what you did.
+
+### Improvement 1: Make the time range answer choices mutually exclusive and complete
+
+**Problem:** The original Q2.2 choices (1 hour or less, 1-2 hours, 3-4 hours, 4-5 hours, 5 or more) overlap at the boundaries (1 and 2 hours, 4 and 5 hours) and leave gaps (for example, 2 to 3 hours). A participant can fit more than one option or none. My new Q59 columns had the same risk.
+
+**Fix:** I rewrote the ranges so each amount of time fits exactly one choice, for example: Less than 30 minutes, 30 minutes to 1 hour, 1 to 2 hours, 2 to 4 hours, More than 4 hours.
+
+**Why it improves the survey:** Mutually exclusive and exhaustive categories reduce respondent confusion and measurement error.
+
+![](images/clipboard-3889876394.png)
+
+### Improvement 2: Remove the redundant total time question (Q2.2)
+
+**Problem:** Once Q58 and Q59 capture time for each platform, the original Q2.2 asks for less detailed information about the same topic, and it adds respondent burden.
+
+**Fix:** I deleted Q2.2 (or: kept it only as a check on the per platform answers; edit this sentence to match your choice).
+
+**Why it improves the survey:** A shorter survey with no duplicate questions reduces survey fatigue and keeps the data cleaner.
+
+### Improvement 3: Require an answer to Q58 and add a "None of the above" option
+
+**Problem:** Q59 depends on Q58. If a participant skips Q58, the follow-up matrix has no rows. A participant who uses none of the listed platforms also has no honest option to choose.
+
+**Fix:** I turned on a response requirement for Q58 and added an exclusive "None of the above" choice.
+
+**Why it improves the survey:** It prevents empty or confusing follow up questions and gives non users an accurate answer instead of forcing a false one.
+
+![](images/clipboard-2780155666.png)
+
+### Other small clean-ups (optional)
+
+I also corrected the label "Twitter/x" to "Twitter/X" so the platform names are consistent.
+
+## Summary
+
+| Task | Result |
+|-------------------------------|-----------------------------------------|
+| 1\. Rename project | Done |
+| 2\. Review structure | Blocks 5, 6, and 7 identified and explained |
+| 3\. Random assignment | Randomizer set to present 1 of 2 ad blocks, evenly; tested 5 times |
+| 4\. Platform usage | Q58 (select all) plus Q59 (carry forward) built and tested |
+| 5\. Improvements | Three improvements made |
+
+## Appendix
+
+-   GitHub repository: <https://github.com/YOUR-USERNAME/YOUR-REPO>
+-   Published report (GitHub Pages): <https://YOUR-USERNAME.github.io/YOUR-REPO/>
